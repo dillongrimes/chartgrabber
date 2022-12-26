@@ -1,0 +1,305 @@
+.container {
+	width: 100%;
+	overflow: auto;
+}
+
+.col, .col-6, .col-4, .col-3 {
+	float: left;
+}
+
+.col {
+	width: 100%;
+}
+
+.col-6 {
+	width: 50%;
+}
+
+.col-4 {
+	width: 33.33%;
+}
+
+.col-3 {
+	width: 20%;
+}
+
+/* Free Offers */
+
+.classSix {
+	text-align: center;
+	color:#cc0000;
+}
+
+/*  */
+
+/* Accessories Sold Separately */
+
+.accessory {
+    width: 50%;
+    float: left;
+    margin-top: 14px;
+    padding-left: 20px;
+}
+
+    .accessory.skinniercol {
+        width: 38%;
+        float: left;
+        margin-top: 14px;
+        padding-left: 20px;
+    }
+
+     .accessory.three-column-baseUtility {
+         width: 100%;
+         padding-left: 0;
+         margin-top: 14px;
+    } 
+
+    .accessory.three-column ul, .accessory.three-column-baseUtility ul {
+        float: left;
+        margin-top: 0;
+        width: 28%;
+    } 
+
+    .accessory.three-column-baseUtility ul {
+        width: 27%;
+    }
+
+    .accessory.two-column ul {
+        margin-top: 0;
+    }
+
+	.accessory.two-column {
+		padding-left: 0;
+		margin-top: 0;
+	}
+
+    .accessory.two-column ul li, .accessory.three-column ul li {
+        width: 100%;
+    }
+
+    .accessory.underline ul li {
+        text-decoration: underline;
+    }
+
+    .gnborderSubgroup #dvTop #dvRightContent .proDetCopy .accessory ul li, .gnborderSubgroup .proDetCopy .accessory ul li {
+        width: 100%;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+    
+
+   .gnborderSubgroup .proDetCopy .accessory ul li::marker {font-size: 11px; }
+    
+   .gnborderSubgroup .proDetCopy .accessory.three-column a,
+   .gnborderSubgroup .proDetCopy .accessory.two-column a {
+       color:#003366; 
+       text-decoration: none; 
+       font-size:14px;
+    } 
+
+    .gnborderSubgroup .proDetCopy .accessory.two-column.accessory12font a, .gnborderSubgroup .proDetCopy .accessory.three-column.accessory12font a, .gnborderSubgroup .proDetCopy .accessory12font a, .gnborderSubgroup .proDetCopy .accessory.three-column-baseUtility.accessory12font a {
+        font-size: 12px;
+        text-decoration: none;
+    }
+    .gnborderSubgroup .proDetCopy .accessory.three-column-baseUtility.accessory10font a {
+        font-size: 10px;
+        text-decoration: none;
+    }
+
+    @media only screen and (min-width: 1260px){
+        .gnborderSubgroup .proDetCopy .accessory.three-column a{ 
+            font-size:12px; 
+        } 
+        .gnborderSubgroup .proDetCopy .accessory.two-column a{
+            font-size:16px;
+        }     
+    } 
+
+    
+    @media only screen and (max-width: 720px){
+        #subgroupDetail-Container .description-tab .proDetCopy .accessory ul li a { 
+            font-size: 11px;
+        }
+    }
+
+
+/*  */
+
+
+/* Free Offers Expand */
+
+.FO_Expand, .MainText {
+	text-transform: uppercase;
+	color: #cc0000;
+}
+
+.FO_Expand {
+	padding: 2px;
+	cursor: pointer;
+	color: #036;
+	text-align: left;
+	margin-top: 10px;
+	margin-left: -14px;
+	text-transform: none;
+}
+
+.MainText { display: none;
+	padding : 0 5px;
+	width: 100%;
+	text-align: center;
+}
+	.MainText span.SPtext {
+		color: #000;
+		text-transform: none;
+	}
+
+#switch, #switch2 {
+	margin-bottom: 1px;
+}
+
+#switch2 {
+	display: none;
+	padding-right: 4px;
+}
+ 
+/*  */
+
+/* Gloves Sizing */
+.MeasurementGuide {
+	display:none;
+    margin-top: 10px;
+}
+
+    .mg-content{
+      display: grid;
+      grid-template-columns: 90px 235px;
+      grid-template-rows: auto;
+      grid-template-areas: 
+        "image text"
+        "image table";
+    }
+
+    .mg-image {
+      grid-area: image;
+      height: 80px;
+    }
+
+    .mg-image img {
+        width: 80px;
+        height: 80px;
+    }
+    .mg-leadIn {
+      grid-area: text;
+    }
+    .mg-chart {
+      grid-area: table;
+    }
+
+    .mg-chart table {
+        border-collapse: collapse;
+        margin-top: 8px;
+        width: 100%;
+	}
+
+	.mg-chart table td {
+        text-align: center; 
+        border: 1px solid;
+	}
+
+	.insetExpand {
+  		padding: 2px;
+  	 	cursor: pointer;
+		color:#036;
+		text-align:left; 
+		margin:10px 0 0 -18px; 
+		margin-left:-18px;
+	}
+	
+	.insetExpand img {
+		margin-bottom: 1px;
+	}
+	
+	.insetExpand img#collapse{
+		margin-bottom:1px; 
+		display:none; 
+		padding-right:4px;
+	} 
+    
+    @media only screen and (min-width: 1260px){
+        .mg-content{ display: grid; grid-template-columns: 110px 310px; } 
+        .mg-image img {width: 100px;height: 100px; }
+        .mg-chart {margin-top: 11px;}
+    }
+    
+    @media only screen and (max-width: 720px){
+        .mg-content{ 
+            grid-template-columns: 90px 188px;
+            grid-template-areas: 
+                "image text"
+                "table table"
+        } 
+        .mg-image img {width: 80px;height: 80px; }
+        .mg-chart {margin-top: 6px;}
+        .mg-leadIn {align-self: center;}
+    }
+/*  */
+
+/* Includes Kit */
+
+.includesKit ul, .includesKit b, .includesKit p {
+	font-size: 11px;
+}
+	.includesKit ul li {
+		list-style-type: disc;
+	}
+
+/*  */
+	
+/* QUERIES */
+
+@media only screen and (max-width: 979px) {
+
+/* Includes Kit */
+
+#subgroupDetail-Container .description-tab .proDetCopy .includesKit ul,
+#description-tab .proDetCopy .includesKit ul {
+	margin-top: 10px !important;
+	padding-top: 0 !important;
+}
+
+/*  */
+
+}
+
+
+@media only screen and (min-width: 979px) {
+
+.col-lg {
+	width: 100%;
+}
+
+.col-lg-6 {
+	width: 50%;
+}
+
+.col-lg-4 {
+	width: 33.33%;
+}
+
+.col-lg-3 {
+	width: 20%;
+}
+
+}
+
+
+@media only screen and (min-width: 700px) {
+
+/* Includes Kit */
+
+.includesKit ul li:not(:first-child) {
+	margin-top:-5px;
+}
+
+/*  */
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style id="catalogfonts4web.css" type="text/css">
+        @charset "UTF-8";
+        @font-face {
+            font-family: "AvantGardeGothic";
+            src: url("/static/fonts/ITCAvantGardeGothicW05-Medium.eot?#iefix");
+            src: url("/static/fonts/ITCAvantGardeGothicW05-Medium.eot?#iefix") format("embedded-opentype"), url("/static/fonts/ITCAvantGardeGothicW05-Medium.woff2") format("woff2"), url("chart_template_files/fonts//ITCAvantGardeGothicW05-Medium.woff") format("woff"), url("/static/fonts/ITCAvantGardeGothicW05-Medium.ttf") format("truetype"), url("/static/fonts/e3929a31-b148-4180-91be-4b490bdac87d.svg#e3929a31-b148-4180-91be-4b490bdac87d") format("svg")
+        }
+
+        @font-face {
+            font-family: "AvantGardeGothic";
+            src: url("/static/fonts/ITCAvantGardeGothicW05-Demi.eot?#iefix");
+            src: url("/static/fonts/ITCAvantGardeGothicW05-Demi.eot?#iefix") format("embedded-opentype"), url("/static/fonts/ITCAvantGardeGothicW05-Demi.woff2") format("woff2"), url("chart_template_files/fonts//ITCAvantGardeGothicW05-Demi.woff") format("woff"), url("/static/fonts/ITCAvantGardeGothicW05-Demi.ttf") format("truetype"), url("/static/fonts/f2de529c-11d2-43b7-be7c-05c5aaeaf133.svg#f2de529c-11d2-43b7-be7c-05c5aaeaf133") format("svg");
+            font-weight: bold
+        }
+    </style>
+
+    <!-- Icons for Add to Home Screen -->
+
+    <link id="lnkCssFile" type="text/css" rel="Stylesheet" href="/static/UlineStyles.min.css">
+    <link id="lnkStaticCssFile" type="text/css" rel="Stylesheet" href="/static/subgroupproduct.css">
+    <script type="application/javascript">
+
+
+        async function copyCode(blockId) {
+            let code = document.getElementById(blockId);
+            let text = code.innerHTML;
+            console.log(text);
+
+            await navigator.clipboard.writeText(text);
+        }
+
+    </script>
+</head>
+<body style="padding: 0; margin: 0;" id="body">
+{% if error %}
+    {{ error }}
+{% endif %}
+
+{% if output %}
+
+<div id="container" x-ms-format-detection="none" class="MasterContainer" ng-app="UlineClientApp">
+    <div id="divContent" role="main" class="content contentBorder" style="min-height: 401.8px;">
+        <div id="divContentFooterWrap">
+            <div id="contentwrap" class="contentwrap">
+                <div id="divContentCell" class="contentCell">
+                    <div id="bodycontent" class="bodycontent">
+                        <div>
+                            <h2> {{ page_ref|upper }}
+                                <div style="float:right;">
+                                    <button onclick="copyCode('copychart');">Copy Chart</button>
+                                </div>
+                            </h2>
+                        </div>
+                        <div class="templateContent productDetailPage hasMarginBottom" id="templateContent">
+                            <div class="gnborder">
+                                <div id="copychart" style="float:none;">
+                                    {{ output|safe }}
+                                </div>
+                            </div>
+                        </div>
+                        From: <a target="_blank" href="{{ page_url }}">{{ page_url }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endif %}
+
+</body>
+</html>
