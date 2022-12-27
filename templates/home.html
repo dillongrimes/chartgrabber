@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style type="text/css">
         body, div, input {
             font-size: 20px;
@@ -10,23 +11,18 @@
             font-family: Verdana, Arial, Helvetica, sans-serif;
         }
         form {
-             margin:10% auto;
-        }
-        .button {
-            background-color: #2d97cb;
-            font-weight: bold;
-            color: white;
-            border: 0;
+            margin:10% auto;
+            max-width: 500px;
         }
     </style>
 </head>
 <body>
     <form method="post">
-        <div>
             <h1>ChartGrabber</h1>
-            <input type="text" name="page_ref" placeholder="h-1234 or bl_1234">
-            <input type="submit" value="GO" class="button">
-        </div>
+            <div class="input-group">
+                <input class="form-control" type="text" name="page_ref" placeholder="h-1234 or bl_1234">
+                <input class="btn btn-primary" type="submit" value="GO">
+            </div>
     </form>
 </body>
 </html>
