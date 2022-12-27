@@ -3,13 +3,24 @@ from urllib.parse import urljoin
 
 import requests
 from bs4 import BeautifulSoup
-from flask import Flask, render_template
+from flask import redirect, Flask, request, render_template, url_for
 
 app = Flask(__name__)
 
 
+@app.route('/', methods=['GET', 'POST'])
+def home():
+    if request.method == 'POST':
+        page_ref = request.values.get('page_ref')
+        return redirect(url_for('output', page_ref=page_ref), code=302)
+
+    return render_template(
+        'home.html'
+    )
+
+
 @app.route('/<page_ref>')
-def dissect(page_ref):
+def output(page_ref):
     error, url_bit, page_url = None, None, None
     output = ''
     # Is the reference a subgroup or item level page?
