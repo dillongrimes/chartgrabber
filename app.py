@@ -25,7 +25,7 @@ def output(page_ref):
     output = ''
     # Is the reference a subgroup or item level page?
     subgroup = re.match(r'(bl_\d+)', page_ref, re.IGNORECASE)
-    item_level = re.match(r'([hs]-\d+)', page_ref, re.IGNORECASE)
+    item_level = re.match(r'([hs]-\w+)', page_ref, re.IGNORECASE)
     if subgroup:
         url_bit = f"{subgroup[0]}/x"
     elif item_level:
