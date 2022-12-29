@@ -44,12 +44,16 @@ def output(page_ref):
             raw_html = page.text
 
             soup = BeautifulSoup(raw_html, 'html.parser')
+            chartheader = soup.find("div", {"id": "dvRootItem"})
+            if chartheader:
+                output += chartheader
+            
             # find the dvChart
             chart = soup.find("div", {"id": "dvChart"})
             # drop the attrib tags
             [x.unwrap() for x in chart.findAll('attrib')]
             # remove any script tags
-            [x.decompose() for x in chart.findAll('script')]
+            #[x.decompose() for x in chart.findAll('script')]
             # make all urls absolute
             for url in chart.find_all('a'):
                 url['href'] = urljoin('https://www.uline.com/', url.get('href'))
@@ -57,7 +61,7 @@ def output(page_ref):
                 url['href'] = urljoin('https://www.uline.com/', url.get('href'))
 
             if chart:
-                output = chart
+                output += chart
 
     return render_template(
         'output.html',
