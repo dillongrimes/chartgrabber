@@ -4,6 +4,7 @@ from urllib.parse import urljoin
 import requests
 from bs4 import BeautifulSoup
 from flask import redirect, Flask, request, render_template, url_for
+from requests_html import HTMLSession
 
 app = Flask(__name__)
 
@@ -37,7 +38,10 @@ def output(page_ref):
     if url_bit:
         page_url = f"https://www.uline.com/{url_bit}"
         # fetch the page from the production website
-        page = requests.get(page_url)
+        # page = requests.get(page_url)
+        s = HTMLSession()
+        page = s.get(page_url)
+        page.html.render(wait=2, sleep=3)
         if not page.status_code == 200:
             error = f"Bad response: {page.status_code}"
         else:
@@ -53,7 +57,7 @@ def output(page_ref):
             # drop the attrib tags
             [x.unwrap() for x in chart.findAll('attrib')]
             # remove any script tags
-            #[x.decompose() for x in chart.findAll('script')]
+            [x.decompose() for x in chart.findAll('script')]
             # make all urls absolute
             for url in chart.find_all('a'):
                 url['href'] = urljoin('https://www.uline.com/', url.get('href'))
