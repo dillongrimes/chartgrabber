@@ -46,7 +46,7 @@ def output(page_ref):
             soup = BeautifulSoup(raw_html, 'html.parser')
             chartheader = soup.find("div", {"id": "dvRootItem"})
             if chartheader:
-                output += chartheader
+                output += str(chartheader)
             
             # find the dvChart
             chart = soup.find("div", {"id": "dvChart"})
@@ -61,7 +61,7 @@ def output(page_ref):
                 url['href'] = urljoin('https://www.uline.com/', url.get('href'))
 
             if chart:
-                output += chart
+                output += str(chart)
 
     return render_template(
         'output.html',
