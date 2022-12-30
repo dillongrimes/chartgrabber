@@ -41,10 +41,10 @@ def output(page_ref):
         # page = requests.get(page_url)
         s = HTMLSession()
         page = s.get(page_url)
-        page.html.render(wait=2, sleep=3)
         if not page.status_code == 200:
             error = f"Bad response: {page.status_code}"
         else:
+            page.html.render(sleep=3)
             raw_html = page.text
 
             soup = BeautifulSoup(raw_html, 'html.parser')
