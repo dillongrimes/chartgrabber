@@ -303,3 +303,7 @@
 
 /*  */
 }
+
+.inStockMessage {
+    color: #008000 !important;
+}

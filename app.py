@@ -51,13 +51,17 @@ def output(page_ref):
             chartheader = soup.find("div", {"id": "dvRootItem"})
             if chartheader:
                 output += str(chartheader)
-            
+
             # find the dvChart
             chart = soup.find("div", {"id": "dvChart"})
             # drop the attrib tags
             [x.unwrap() for x in chart.findAll('attrib')]
             # remove any script tags
             [x.decompose() for x in chart.findAll('script')]
+            # find the text "IN STOCK" and add a class to its container
+            instock = chart.find(text=re.compile("IN STOCK"))
+            if instock:
+                instock.parent.get('class').append('inStockMessage')
             # make all urls absolute
             for url in chart.find_all('a'):
                 url['href'] = urljoin('https://www.uline.com/', url.get('href'))
